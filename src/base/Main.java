@@ -19,7 +19,7 @@ public class Main {
 
         sudoku.print();
 
-        // sudoku.solve();
+        sudoku.solve();
 
         // sudoku.print();
     }
