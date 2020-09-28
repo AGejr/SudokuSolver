@@ -4,8 +4,6 @@ public class Main {
 
     public static void main(String[] args)
     {
-        // An example
-
         int grid[][] = {
                 {1, 0, 0, 0, 6, 0, 0, 0, 0},
                 {0, 6, 0, 3, 0, 0, 9, 1, 0},
