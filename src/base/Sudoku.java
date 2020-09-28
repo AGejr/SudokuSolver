@@ -54,20 +54,53 @@ public class Sudoku
 
     private static Boolean valueIsValid(Vec2i pos, int value)
     {
+        int row = pos.mX;
+        int column = pos.mY;
+
         // Test row
+        for (int i = 0; i < (mGrid[row].length); i++)
+        {
+            if (i == column)
+                continue;
+
+            if (mGrid[row][i] == value)
+                return false;
+        }
 
         // Test column
+        for (int i = 0; i < (mGrid.length); i++)
+        {
+            if (i == row)
+                continue;
+
+            if (mGrid[i][column] == value)
+                return false;
+        }
 
         // Test 3x3 square
+        int offsetX = row / 3;
+        int offsetY = column / 3;
+
+        for (int y = 0; y < 3; y++)
+        {
+            for (int x = 0; x < 3; x++)
+            {
+                if ((offsetX + x) == row && (offsetY + y) == column)
+                    continue;
+
+                if (mGrid[offsetX * 3 + x][offsetY * 3 + y] == value)
+                    return false;
+            }
+        }
 
         return true;
     }
 
     public static Vec2i returnEmptyCellPos()
     {
-        for (int i = 0; i < (mGrid.length - 1); i++)
+        for (int i = 0; i < (mGrid.length); i++)
         {
-            for (int j = 0; j < (mGrid[i].length - 1); j++)
+            for (int j = 0; j < (mGrid[i].length); j++)
             {
                 if (mGrid[i][j] != 0)
                     continue;
@@ -81,6 +114,8 @@ public class Sudoku
 
     public static void print()
     {
+        System.out.print("\n");
+
         for(int[] row: mGrid)
         {
             System.out.print("[ ");
