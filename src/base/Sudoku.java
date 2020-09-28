@@ -138,7 +138,7 @@ public class Sudoku
         return true;
     }
 
-    public static Vec2i returnEmptyCellPos()
+    private static Vec2i returnEmptyCellPos()
     {
         // Return the (x,y) position of the next
         // element in the grit that has a value of 0
